@@ -102,7 +102,8 @@ if (formChangeMulti) {
     );
 
     const typeChange = e.target.elements.type.value;
-    if (typeChange == `delete-all`) {
+
+    if (typeChange == "delete-all") {
       const isConfirm = confirm("Bạn có chắc muốn xóa những sản phẩm này?");
 
       if (!isConfirm) {
@@ -119,10 +120,10 @@ if (formChangeMulti) {
 
         if (typeChange == "change-position") {
           const position = input
-            .closet("tr")
+            .closest("tr")
             .querySelector("input[name='position']").value;
 
-          id.push(`${id}-${position}`);
+          ids.push(`${id}-${position}`);
         } else {
           ids.push(id);
         }
@@ -138,7 +139,7 @@ if (formChangeMulti) {
 }
 // End Form Change Multi
 
-//Show Alert
+// Show Alert
 const showAlert = document.querySelector("[show-alert]");
 if (showAlert) {
   const time = parseInt(showAlert.getAttribute("data-time"));
@@ -152,4 +153,19 @@ if (showAlert) {
     showAlert.classList.add("alert-hidden");
   });
 }
-//End Show Alert
+// End Show Alert
+
+// Upload Image
+const uploadImage = document.querySelector("[upload-image]");
+if (uploadImage) {
+  const uploadImageInput = document.querySelector("[upload-image-input]");
+  const uploadImagePreview = document.querySelector("[upload-image-preview]");
+
+  uploadImageInput.addEventListener("change", (e) => {
+    const file = e.target.files[0];
+    if (file) {
+      uploadImagePreview.src = URL.createObjectURL(file);
+    }
+  });
+}
+// End Upload Image
