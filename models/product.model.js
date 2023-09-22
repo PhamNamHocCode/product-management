@@ -16,13 +16,13 @@ const productSchema = new mongoose.Schema(
     slug: {
       type: String,
       slug: "title",
-      uquine: true,
+      unique: true
     },
     deleted: {
       type: Boolean,
       default: false,
     },
-    deleteAt: Date,
+    deletedAt: Date,
   },
   {
     timestamps: true,

@@ -3,27 +3,27 @@ module.exports = (query) => {
     {
       name: "Tất cả",
       status: "",
-      class: "",
+      class: ""
     },
     {
       name: "Hoạt động",
       status: "active",
-      class: "",
+      class: ""
     },
     {
       name: "Dừng hoạt động",
       status: "inactive",
-      class: "",
-    },
+      class: ""
+    }
   ];
 
-  if (query.status) {
-    const index = filterStatus.findIndex((item) => item.status == query.status);
+  if(query.status) {
+    const index = filterStatus.findIndex(item => item.status == query.status);
     filterStatus[index].class = "active";
   } else {
-    const index = filterStatus.findIndex((item) => item.status == "");
+    const index = filterStatus.findIndex(item => item.status == "");
     filterStatus[index].class = "active";
   }
 
   return filterStatus;
-};
+}
